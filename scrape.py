@@ -4,8 +4,25 @@ from bs4 import BeautifulSoup
 URL = 'https://www.freelancer.co.uk/jobs/?keyword=python'
 req = requests.get(URL)
 soup = BeautifulSoup(req.content, "html.parser")
-results = soup.find("div", {"class": "pinky-template"})
-#print(results)
-children = results.findChildren()
-for child in children:
-    print(child.prettify())
+results = soup.findAll("div", {"class": "pinky-template"})
+
+unique_cards = set()
+
+if results:  # Check if results is not empty
+    res = results[1]
+    children = res.findChildren()
+    for child in children:
+        print(child)
+        title = 'none'
+        description = child.find("p", {"class": "JobSearchCard-primary-description"})
+        price = 'none'
+        key_skills = 'none'
+        url = 'none'
+        if description:
+            unique_cards.add(description.text.strip())
+
+
+# for cards in unique_cars:
+#     print(cards)
+# else:
+#     print("No results found")
