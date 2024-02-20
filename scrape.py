@@ -13,9 +13,9 @@ if results:  # Check if results is not empty
     children = res.findChildren()
     for child in children:
         print(child)
-        title = 'none'
-        description = child.find("p", {"class": "JobSearchCard-primary-description"})
-        price = 'none'
+        title = child.find("a", {'class' : 'JobSearchCard-primary-heading-link'})
+        description = child.find("p", {"class" : "JobSearchCard-primary-description"})
+        price = child.find('div', {'class' : 'JobSearchCard-primary-price'})
         key_skills = 'none'
         url = 'none'
         if description:
