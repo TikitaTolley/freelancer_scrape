@@ -22,7 +22,7 @@ if results:  # Check if results is not empty
             unique_cards.add(description.text.strip())
 
 
-# for cards in unique_cars:
-#     print(cards)
-# else:
-#     print("No results found")
+for cards in unique_cards:
+    print(cards)
+else:
+    print("No results found")
