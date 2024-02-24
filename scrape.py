@@ -8,14 +8,13 @@ req = requests.get(URL)
 soup = BeautifulSoup(req.content, "html.parser")
 results = soup.findAll("div", {"class": "pinky-template"})
 
-unique_cards = [] #set()
+unique_cards = []
 titles = []
 
 if results:  # Check if results is not empty
     res = results[1]
     children = res.findChildren()
     for child in children:
-        #print(child)
         title = child.find("a", {'class' : 'JobSearchCard-primary-heading-link'})
 
         description = child.find("p", {"class" : "JobSearchCard-primary-description"})
@@ -25,7 +24,6 @@ if results:  # Check if results is not empty
             skill_links = skills_data.find_all('a', href=True)
             for skill in skill_links:
                 skill_text = skill.text.strip()
-                #print(skill_text)
         url_tag = child.findAll('a', {'class' : 'JobSearchCard-primary-heading-link'})
         for url in url_tag:
             if url != 'None':
@@ -40,7 +38,6 @@ if results:  # Check if results is not empty
 for cards in unique_cards:
     for c in cards:
         print(c)
-    #print(cards)
 if len(unique_cards) == 0:
     print("No results found")
 
