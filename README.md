@@ -7,18 +7,18 @@ I wanted to change the layout of the list of jobs, only getting information spec
 
 ## Installation
 ### Setting up the virtual environment
-pip install virtualenv
-python3 -m venv venv
-source venv/bin/activate
+1. pip install virtualenv
+2. python3 -m venv venv
+3. source venv/bin/activate
 
 ### Create gitignore
-touch .gitignore (no output expected)
-open .gitignore and write in venv
+1. touch .gitignore (no output expected)
+2. open .gitignore and write in venv
 
 ### Installing dependencies
-pip install requests
-pip install beautifulsoup4
-pip install python-csv
+1. pip install requests
+2. pip install beautifulsoup4
+3. pip install python-csv
 
 ## Usage
 ### Import modules
